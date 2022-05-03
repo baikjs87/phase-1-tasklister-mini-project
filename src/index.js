@@ -15,6 +15,8 @@ function addTodo(todo) {
   let edit = document.createElement('button')
   let priority = document.getElementById('priority')
   let priorityValue = priority.options[priority.selectedIndex].value
+  let dueDate = document.getElementById('dueDate').required
+  let dueBy = document.getElementById('dueDate').value
 
   // btn.addEventListener('click', deleteTodo)
   btn.addEventListener('click', moveTask)
@@ -23,12 +25,11 @@ function addTodo(todo) {
   edit.addEventListener('click', editTodo)
   edit.textContent = 'Edit'
   
-  p.textContent = `${todo}  `
+  p.textContent = `${todo} (Due by ${dueBy})   `
   p.appendChild(btn)
   p.appendChild(edit)
   
   document.querySelector('#tasks').appendChild(p)
-  
   document.querySelector('.todoEntry').style.color = `${priorityValue}`
 }
 
@@ -90,8 +91,7 @@ function undoTask(e) {
 
 function editTodo(e){
   textUpdate = prompt('Edit Task', e.target.parentNode.firstChild.textContent)
-  e.target.parentNode.firstChild.textContent = `${textUpdate} `
-  // textUpdate === null
-  // ? {}
-  // : (e.target.parentNode.firstChild.textContent = `${textUpdate} `)
+  textUpdate === null
+  ? {}
+  : (e.target.parentNode.firstChild.textContent = `${textUpdate} `)
 }
