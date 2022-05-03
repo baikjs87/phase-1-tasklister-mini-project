@@ -44,3 +44,11 @@ button {
 #medPriority {
   color: orange;
 }
+
+#completed {
+  color:rgb(115, 115, 115)
+}
+
+#compTasks {
+  text-decoration: line-through
+}

@@ -10,46 +10,88 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function addTodo(todo) {
   let p = document.createElement('li')
+  p.setAttribute('class', 'todoEntry')
   let btn = document.createElement('button')
   let edit = document.createElement('button')
-  btn.addEventListener('click', deleteTodo)
+  let priority = document.getElementById('priority')
+  let priorityValue = priority.options[priority.selectedIndex].value
+
+  // btn.addEventListener('click', deleteTodo)
+  btn.addEventListener('click', moveTask)
   btn.textContent = 'Done!'
+  
   edit.addEventListener('click', editTodo)
   edit.textContent = 'Edit'
+  
   p.textContent = `${todo}  `
   p.appendChild(btn)
   p.appendChild(edit)
+  
   document.querySelector('#tasks').appendChild(p)
+  
+  document.querySelector('.todoEntry').style.color = `${priorityValue}`
 }
 
-function myFunction(c) 
-{
-    document.getElementById("new_task_description").style.color = c;
-}
 
 
 function deleteTodo(e) {
   e.target.parentNode.remove()
 }
 
-function editTodo(e) {
-  e.target.parentNode.innerHTML = "<form id='changeNewTodo' action method='POST'><input type='text' editTodo name=editTodo><input type='submit' id='confirmEditedTodo' value='Confirm'><input type='submit' id='cancelEdit' value='Cancel'></form>"
-  let newTodo = document.querySelector('#confirmEditedTodo')
-  newTodo.addEventListener('submit', (e) => {
-    e.preventDefault()
-    changeTodo(e.target.editTodo.value)
-})
+
+
+function moveTask(e){
+  let task = e.target.parentNode.firstChild
+  let completedTasks = document.createElement('li')
+  completedTasks.setAttribute('id', 'compTasks')
+  let delButton = document.createElement('button')
+  let undoButton = document.createElement('button')
+
+  delButton.textContent = 'Delete'
+  undoButton.textContent = 'Undo'
+
+  delButton.addEventListener('click', deleteTodo)
+  undoButton.addEventListener('click', undoTask)
+  
+  e.target.parentNode.remove()
+
+  completedTasks.appendChild(task)
+  completedTasks.appendChild(delButton)
+  completedTasks.appendChild(undoButton)
+
+  document.querySelector('#completedTasks').appendChild(completedTasks)
 }
 
-// function editTodo(e){
-//   let form = document.createElement('form id="changeNewTodo" action method="POST"')
-//   let text = document.createElement('input type="text" editTodo name=editTodo')
-//   let newTodo = document.querySelector('#confirmEditedTodo')
-//   e.target.parentNode.textContent = form
-// }
 
 
+function undoTask(e) {
+  let task = e.target.parentNode.firstChild
+  let p = document.createElement('li')
+  let btn = document.createElement('button')
+  let edit = document.createElement('button')
 
-// function changeTodo(e) {
-//   e.target.innerHTML = "New"
-// }
+  btn.addEventListener('click', moveTask)
+  btn.textContent = 'Done!'
+
+  edit.addEventListener('click', editTodo)
+  edit.textContent = 'Edit'
+
+  edit.addEventListener('click', editTodo)
+  edit.textContent = 'Edit'
+
+  p.appendChild(task)
+  p.appendChild(btn)
+  p.appendChild(edit)
+
+  e.target.parentNode.remove()
+  
+  document.querySelector('#tasks').appendChild(p)
+}
+
+function editTodo(e){
+  textUpdate = prompt('Edit Task', e.target.parentNode.firstChild.textContent)
+  e.target.parentNode.firstChild.textContent = `${textUpdate} `
+  // textUpdate === null
+  // ? {}
+  // : (e.target.parentNode.firstChild.textContent = `${textUpdate} `)
+}
