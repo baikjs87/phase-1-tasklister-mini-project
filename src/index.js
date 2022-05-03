@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-  let form = document.querySelector('#create_task_form')
+  const form = document.querySelector('#create_task_form')
+  const sort = document.querySelector('#sort')
   form.addEventListener('submit', (e) => {
     e.preventDefault()
     addTodo(e.target.new_task_description.value)
@@ -8,15 +9,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+
+sort.addEventListener('click', function(){
+  taskItems = array.from(tasks.children)
+  let newList = taskItems.sort()
+  taskItems.forEach(iteam=>iteam.remove())
+})
+
 function addTodo(todo) {
-  let p = document.createElement('li')
+  const p = document.createElement('li')
   p.setAttribute('class', 'todoEntry')
-  let btn = document.createElement('button')
-  let edit = document.createElement('button')
-  let priority = document.getElementById('priority')
-  let priorityValue = priority.options[priority.selectedIndex].value
-  let dueDate = document.getElementById('dueDate').required
-  let dueBy = document.getElementById('dueDate').value
+  const btn = document.createElement('button')
+  const edit = document.createElement('button')
+  const priority = document.getElementById('priority')
+  const priorityValue = priority.options[priority.selectedIndex].value
+  // const dueDate = document.getElementById('dueDate').required
+  const dueBy = document.getElementById('dueDate').value
 
   // btn.addEventListener('click', deleteTodo)
   btn.addEventListener('click', moveTask)
@@ -28,11 +36,10 @@ function addTodo(todo) {
   p.textContent = `${todo} (Due by ${dueBy})   `
   p.appendChild(btn)
   p.appendChild(edit)
-  
-  document.querySelector('#tasks').appendChild(p)
-  document.querySelector('.todoEntry').style.color = `${priorityValue}`
-}
+  p.setAttribute('style', 'color:' + `${priorityValue}`)
 
+  document.querySelector('#tasks').appendChild(p)  
+}
 
 
 function deleteTodo(e) {
@@ -42,11 +49,11 @@ function deleteTodo(e) {
 
 
 function moveTask(e){
-  let task = e.target.parentNode.firstChild
-  let completedTasks = document.createElement('li')
+  const task = e.target.parentNode.firstChild
+  const completedTasks = document.createElement('li')
   completedTasks.setAttribute('id', 'compTasks')
-  let delButton = document.createElement('button')
-  let undoButton = document.createElement('button')
+  const delButton = document.createElement('button')
+  const undoButton = document.createElement('button')
 
   delButton.textContent = 'Delete'
   undoButton.textContent = 'Undo'
@@ -66,10 +73,10 @@ function moveTask(e){
 
 
 function undoTask(e) {
-  let task = e.target.parentNode.firstChild
-  let p = document.createElement('li')
-  let btn = document.createElement('button')
-  let edit = document.createElement('button')
+  const task = e.target.parentNode.firstChild
+  const p = document.createElement('li')
+  const btn = document.createElement('button')
+  const edit = document.createElement('button')
 
   btn.addEventListener('click', moveTask)
   btn.textContent = 'Done!'
@@ -95,3 +102,6 @@ function editTodo(e){
   ? {}
   : (e.target.parentNode.firstChild.textContent = `${textUpdate} `)
 }
+
+
+
