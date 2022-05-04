@@ -46,7 +46,8 @@ button {
 }
 
 #completed {
-  color:rgb(115, 115, 115)
+  color:rgb(115, 115, 115);
+  margin-top: 16px;
 }
 
 #compTasks {
@@ -56,4 +57,48 @@ button {
 #sort {
   position: relative
 
+}
+
+.doneButton {
+  margin-left: 10px;
+  padding: 4px;
+  padding-left: 12px;
+  padding-right: 12px;
+  font-size: 12px;
+  background-color: rgb(97, 198, 79);
+  border: 1px solid rgb(97, 198, 79);
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 2px rgba(68, 68, 68, 0.56);
+}
+
+.editButton {
+  margin-left: 10px;
+  padding: 4px;
+  font-size: 12px;
+  box-shadow: 2px 2px 2px rgba(68, 68, 68, 0.56);
+}
+
+.delButton {
+  margin-left: 10px;
+  padding: 4px;
+  padding-left: 12px;
+  padding-right: 12px;
+  font-size: 12px;
+  background-color: rgb(189, 50, 50);
+  border: 1px solid rgb(189, 50, 50);
+  margin-bottom: 20px;
+  box-shadow: 2px 2px 2px rgba(68, 68, 68, 0.56);
+  color: white;
+}
+
+.undoButton {
+  margin-left: 10px;
+  padding: 4px;
+  font-size: 12px;
+  box-shadow: 2px 2px 2px rgba(68, 68, 68, 0.56);
+}
+
+#clearList {
+  margin-left: 10px;
+  font-size: 10px;
 }

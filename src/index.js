@@ -1,12 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector('#create_task_form')
   const sort = document.querySelector('#sort')
+  const clearListButton = document.querySelector('#clearList')
   form.addEventListener('submit', (e) => {
     e.preventDefault()
     addTodo(e.target.new_task_description.value)
     form.reset()
   })
-
+  clearListButton.addEventListener('click', () => {
+    clearList()
+  })
 });
 
 
@@ -29,11 +32,15 @@ function addTodo(todo) {
   // btn.addEventListener('click', deleteTodo)
   btn.addEventListener('click', moveTask)
   btn.textContent = 'Done!'
+  btn.className = 'doneButton'
   
   edit.addEventListener('click', editTodo)
   edit.textContent = 'Edit'
+  edit.className = 'editButton'
   
-  p.textContent = `${todo} (Due by ${dueBy})   `
+  if (dueBy) {p.textContent = `${todo} (Due by ${dueBy})`}
+  else {p.textContent = `${todo}`}
+
   p.appendChild(btn)
   p.appendChild(edit)
   p.setAttribute('style', 'color:' + `${priorityValue}`)
@@ -56,7 +63,9 @@ function moveTask(e){
   const undoButton = document.createElement('button')
 
   delButton.textContent = 'Delete'
+  delButton.className = 'delButton'
   undoButton.textContent = 'Undo'
+  undoButton.className = 'undoButton'
 
   delButton.addEventListener('click', deleteTodo)
   undoButton.addEventListener('click', undoTask)
@@ -80,12 +89,11 @@ function undoTask(e) {
 
   btn.addEventListener('click', moveTask)
   btn.textContent = 'Done!'
+  btn.className = 'doneButton'
 
   edit.addEventListener('click', editTodo)
   edit.textContent = 'Edit'
-
-  edit.addEventListener('click', editTodo)
-  edit.textContent = 'Edit'
+  edit.className = 'editButton'
 
   p.appendChild(task)
   p.appendChild(btn)
@@ -100,8 +108,11 @@ function editTodo(e){
   textUpdate = prompt('Edit Task', e.target.parentNode.firstChild.textContent)
   textUpdate === null
   ? {}
-  : (e.target.parentNode.firstChild.textContent = `${textUpdate} `)
+  : (e.target.parentNode.firstChild.textContent = `${textUpdate}`)
 }
 
 
 
+function clearList(e) {
+  console.log(e)
+}
