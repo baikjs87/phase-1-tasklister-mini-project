@@ -58,7 +58,7 @@ function deleteTodo(e) {
 function moveTask(e){
   const task = e.target.parentNode.firstChild
   const completedTasks = document.createElement('li')
-  completedTasks.setAttribute('id', 'compTasks')
+  completedTasks.setAttribute('class', 'compTasks')
   const delButton = document.createElement('button')
   const undoButton = document.createElement('button')
 
@@ -113,6 +113,10 @@ function editTodo(e){
 
 
 
-function clearList(e) {
-  console.log(e)
+function clearList() {
+  const clearCompTasks = document.querySelector('#completedTasks')
+  const completedList = document.createElement('ul')
+  completedList.id = 'completedTasks'
+  clearCompTasks.remove()
+  document.querySelector('#completed').appendChild(completedList)
 }

@@ -14,8 +14,8 @@
 
     <form id="create_task_form" action="" method="POST">
       <label for="new-task-description">Task description:</label>
-      <input type="text" id="new_task_description" name="new-task-description" placeholder="description">
-      <select onchange="myFunction(this.options[this.selectedIndex].value)" id="priority" required>
+      <input type="text" id="new_task_description" name="new-task-description" placeholder="description" required>
+      <select onchange="myFunction(this.options[this.selectedIndex].value)" id="priority">
         <option value="" disabled selected>Priority Level</option>
         <option id="topPriority" value="red">Top Priority</option>
         <option id="medPriority" value="orange">Medium Priority</option>
