@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector('#create_task_form')
-  const sort = document.querySelector('#sort')
+  // const sort = document.querySelector('#sort')
   const clearListButton = document.querySelector('#clearList')
   form.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -13,11 +13,11 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-sort.addEventListener('click', function(){
-  taskItems = array.from(tasks.children)
-  let newList = taskItems.sort()
-  taskItems.forEach(iteam=>iteam.remove())
-})
+// sort.addEventListener('click', function(){
+//   taskItems = array.from(tasks.children)
+//   let newList = taskItems.sort()
+//   taskItems.forEach(iteam=>iteam.remove())
+// })
 
 function addTodo(todo) {
   const p = document.createElement('li')
