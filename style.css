@@ -56,7 +56,7 @@ button {
   margin-top: 16px;
 }
 
-#compTasks {
+.compTasks {
   text-decoration: line-through
 }
 
