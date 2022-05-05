@@ -73,9 +73,14 @@ button {
 
 #completed {
   color:rgb(115, 115, 115);
-  margin-top: 16px;
+  margin-top: 24px;
   height: 32px;
   border-bottom: 1px solid rgb(125, 125, 125);
+  min-width: 470px;
+}
+
+#completedTitle {
+  padding-left: 0px;
 }
 
 #completedTasks {
