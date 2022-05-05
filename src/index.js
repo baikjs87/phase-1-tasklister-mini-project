@@ -26,6 +26,7 @@ function addTodo(todo) {
   const edit = document.createElement('button')
   const priority = document.getElementById('priority')
   const priorityValue = priority.options[priority.selectedIndex].value
+  const priorityId = priority.options[priority.selectedIndex].id
   // const dueDate = document.getElementById('dueDate').required
   const dueBy = document.getElementById('dueDate').value
 
@@ -43,7 +44,8 @@ function addTodo(todo) {
 
   p.appendChild(btn)
   p.appendChild(edit)
-  p.setAttribute('style', 'color:' + `${priorityValue}`)
+  // p.setAttribute('style', 'color:' + `${priorityValue}`)
+  p.setAttribute('id', `${priorityId}`)
 
   document.querySelector('#tasks').appendChild(p)  
 }

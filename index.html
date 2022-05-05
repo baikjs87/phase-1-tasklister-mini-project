@@ -9,12 +9,15 @@
   function myFunction(){}
 </script>
 <body>
+  <div id="titleBox">
+  <h2 id="title">Task Lister Lite™️</h2>
+  </div>
   <div id="main-content">
-    <h1>Task Lister Lite™️</h1>
 
     <form id="create_task_form" action="" method="POST">
       <label for="new-task-description">Task description:</label>
       <input type="text" id="new_task_description" name="new-task-description" placeholder="description" required>
+      <input type="submit" id="newTaskButton" value="Create New Task">
       <br>
       <select onchange="myFunction(this.options[this.selectedIndex].value)" id="priority">
         <option value="" disabled selected>Priority Level</option>
@@ -25,13 +28,12 @@
       <label for="due" id="dueDateLabel">Due Date</label>
       <input type="date" id="dueDate" name="dueDate">
       <br>
-      <input type="submit" id="newTaskButton" value="Create New Task">
     </form>
   <!-- </br>
     <button id="sort">Sort Todo List</button> -->
 
     <div id="list">
-      <h4>My Todos:</h4>
+      <h3 id="todoTitle">My Todos:</h3>
       <ul id="tasks">
       </ul>
     </div>

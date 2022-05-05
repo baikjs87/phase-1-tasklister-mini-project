@@ -7,7 +7,21 @@ html {
 body {
   min-height: 100%;
   min-width: 100%;
-  background: linear-gradient(lightblue, lightgrey);
+}
+
+#titleBox {
+  background-color: rgb(98, 123, 205);
+  box-sizing: border-box;
+  padding: 1px;
+  margin-top: -8px;
+  margin-left: -8px;
+  box-shadow: 2px 2px 2px rgb(122, 122, 122);
+}
+
+#title {
+  margin: 24px;
+  margin-left: 60px;
+  color: white;
 }
 
 #create_task_form {
@@ -21,26 +35,32 @@ button {
 #main-content {
   position: relative;
   display: flex;
-  justify-content: left;
-  align-items: left;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
-  border: 1px solid #333;
   background: rgba(247, 245, 245, 0.481);
   padding: 16px 16px 16px 16px;
-  border-radius: 5px;
-  box-shadow: 2px 5px 5px rgb(162, 162, 162);
-  margin: 16px;
+  margin-top: 16px;
+  /* border: 1px solid #333; */
+  /* border-radius: 5px; */
+  /* box-shadow: 2px 5px 5px rgb(162, 162, 162); */
+}
+
+#todoTitle {
+  font-family:'Times New Roman', Times, serif;
+  font-style: italic;
+  margin-left: 16px;
 }
 
 #list {
   margin: 16px;
   margin-left: 0px;
   margin-right: 0px;
-  border: 1px solid #333;
-  background: rgba(255, 255, 255, 0.75);
-  padding: 0px 16px 24px 16px;
-  border-radius: 5px;
-  box-shadow: 2px 5px 5px rgb(163, 163, 163);
+  min-width: 440px;
+  border: none;
+  background: rgb(248, 235, 190);
+  padding: 0px 16px 0px 16px;
+  box-shadow: 2px 5px 5px rgb(182, 166, 166);
 }
 
 #topPriority {
@@ -48,12 +68,18 @@ button {
 }
 
 #medPriority {
-  color: orange;
+  color: rgb(251, 144, 14);
 }
 
 #completed {
   color:rgb(115, 115, 115);
   margin-top: 16px;
+  height: 32px;
+  border-bottom: 1px solid rgb(125, 125, 125);
+}
+
+#completedTasks {
+  margin-top: 24px;
 }
 
 .compTasks {
@@ -110,17 +136,16 @@ button {
 }
 
 #dueDate {
-  margin-top: 16px;
+  margin-top: 8px;
   margin-bottom: 16px;
 }
 
 #newTaskButton {
-  padding: 16px;
-  font-size: 16px;
+  padding: 8px;
+  font-size: 12px;
   font-weight: bold;
-  margin-top: 8px;
-  margin-bottom: 16px;
-  transition: 0.5s;
+  margin-left: 50px;
+  transition: 0.2s;
 }
 
 #newTaskButton:hover {
